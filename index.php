@@ -39,7 +39,7 @@ if(@$_POST["login"]){ //jika tombol Login diklik
 	$user   = $_POST["user"];
 	$pass   = $_POST["pass"];
     $level  = $_POST['level'];
-	if($user!="" && $pass!="" && $level != ""){
+	if($user!="" OR $pass!="" OR $level != ""){
 		include_once("library/koneksi.php");
 		$em = $server->query("select * from login where password = '$pass' AND username = '$user' AND level = '$level'");
 		$data = $em->fetch_assoc();
@@ -54,7 +54,7 @@ if(@$_POST["login"]){ //jika tombol Login diklik
             $_SESSION["pass"]=$data["password"];
             $_SESSION["level"]=$level;
 
-            if($level=="admin"){
+            if($level=="Admin"){
                header("Location:admin/index.php"); 
             }else{
                 header("location:public/index.php");

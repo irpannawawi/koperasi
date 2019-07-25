@@ -13,8 +13,13 @@ $max	 = ceil($jml/$row);
 <?php
 	if($_POST["user"]){
 			include_once("../library/koneksi.php");
-			$server->query("insert into login set username='".$_POST["usr"]."', password='".$_POST["pas"]."', nama='".$_POST["nma"]."', alamat='".$_POST["alt"]."'");
-			echo "<meta http-equiv='refresh' content='0; url=?menu=user'>";
+			$username 	= $_POST['username'];
+			$password 	= $_POST['password'];
+			$nama 		= $_POST['nama'];
+			$alamat 	= $_POST['alamat'];
+			$level 		= $_POST['level'];
+			$sql 		= "INSERT INTO login(username, password, nama, alamat, level) VALUES('$username', '$password', '$nama', '$alamat', '$level')";
+			$server->query($sql);
 			echo "<center><div class='alert alert-success alert-dismissable'>
                   <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 					<b>Berhasil menambah ke database!!</b>
@@ -41,6 +46,7 @@ user(); //memanggil function user
 						<th>Username</th>
 						<th>Nama Lengkap</th>
 						<th>Alamat</th>
+						<th>Level</th>
 						<th width="90">Aksi</th>
 					</tr>
 				</thead>
@@ -48,15 +54,17 @@ user(); //memanggil function user
 				$usSql = "SELECT * FROM login ORDER BY kd_user DESC LIMIT $hal, $row";
 				$usQry = $server->query($usSql);
 				$nomor  = 0; 
-				$nomor++;
+				
 				while ($us = $usQry->fetch_assoc()) {
+					$nomor++;
 			?>
 				<tbody>
 					<tr>
 						<td><?php echo $nomor;?></td>
-						<td><?php echo $us['username'];?></td>
-						<td><?php echo $us['nama'];?></td>
-						<td><?php echo $us['alamat'];?></td>
+						<td><?php echo $us['username']; ?></td>
+						<td><?php echo $us['nama']; ?></td>
+						<td><?php echo $us['alamat']; ?></td>
+						<td><?php echo $us['level']; ?></td>
 						<td>
 						  <div class='btn-group'>
 						  <a href="?menu=user_del&aksi=hapus&nmr=<?php echo $us['kd_user']; ?>" class="btn btn-xs btn-danger tipsy-kiri-atas" title="Hapus Data Ini" onclick="return confirm('ANDA YAKIN AKAN MENGHAPUS DATA PENTING INI ... ?')"><i class="icon-remove icon-white"></i></a>

@@ -118,19 +118,26 @@ function user(){
 				<form action="" method="post">
 					<div class="form-group">
 						<label class="control-label col-lg">Username</label>
-						<input type="text"  required class="form-control" name="usr"/>
+						<input type="text"  required class="form-control" name="username"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-lg">Password</label>
-						<input type="password" required class="form-control" name="pas"/>
+						<input type="password" required class="form-control" name="password"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-lg">Nama Lengkap</label>
-						<input type="text" required class="form-control" name="nma"/>
+						<input type="text" required class="form-control" name="nama"/>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-lg">Alamat</label>
-						<input type="text" required class="form-control" name="alt"/>
+						<input type="text" required class="form-control" name="alamat"/>
+					</div>
+					<div class="form-group">
+						<label class="control-label col-lg">Level</label>
+						<select required class="form-control" name="level"/>
+							<option value="User">User</option>
+							<option value="Admin">Admin</option>
+						</select>
 					</div>
 						<input type="submit" class="btn btn-primary" name="user" value="Tambah"/>
 						<input type="reset" class="btn btn-warning" value="Close" data-dismiss="modal"/>
