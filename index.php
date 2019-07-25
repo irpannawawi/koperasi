@@ -1,3 +1,17 @@
+<?php
+session_start();
+include_once("library/koneksi.php");
+//jika session sudah ada maka akan di redirect ke halaman yang seharusnya
+  
+  if(isset($_SESSION['level'])){
+   
+    if($_SESSION['level'] == "Admin"){
+      header("location:admin/index.php");
+    }else{
+      header("location:public/index.php");
+    }
+  }
+?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
@@ -32,8 +46,7 @@
 <body >
 <?php
 //error_reporting(0);
-session_start();
-include_once("library/koneksi.php");
+
 
 if(@$_POST["login"]){ //jika tombol Login diklik
 	$user   = $_POST["user"];
@@ -49,8 +62,8 @@ if(@$_POST["login"]){ //jika tombol Login diklik
                   <button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>
 					Data Telah Ditemukan!!.
                   </div>";
-            $_SESSION["user"]=$data["username"];
-			$_SESSION["userId"]=$data["kd_user"];
+            $_SESSION["user"]=$data["nama"];
+            $_SESSION["userId"]=$data["kd_user"];
             $_SESSION["pass"]=$data["password"];
             $_SESSION["level"]=$level;
 
