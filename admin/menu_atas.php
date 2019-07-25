@@ -16,7 +16,7 @@
 
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
+                            <?php echo $_SESSION['user']; ?> <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
                         </a>
 
                         <ul class="dropdown-menu dropdown-user">
