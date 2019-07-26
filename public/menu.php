@@ -59,17 +59,11 @@
 
 											</div>
 										</div>
-									</div>
-                  <div id='footer'>
-        <p>&copy;  andi antoni - <?php echo date('Y');?> Koperasi Gang Mawar </p>
-    }
-</div>
-";
+									</div>";
 						}
 						?>
 					</div>
                 </div>
                   <!--END BLOCK SECTION -->
-                <hr />
             </div>
         </div>
